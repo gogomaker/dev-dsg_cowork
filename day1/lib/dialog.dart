@@ -1,62 +1,31 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const NavigationRailExampleApp());
 
-class MyApp extends StatelessWidget {
+class NavigationRailExampleApp extends StatelessWidget {
+  const NavigationRailExampleApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "WNSP",
-      home: MainPage(),
+    return const MaterialApp(
+      home: HomeScreen(),
     );
   }
 }
 
-class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
-  State<MainPage> createState() => MainPageState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class MainPageState extends State<MainPage> with TickerProviderStateMixin{
-  //대충 필요한 코드
+class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
   NavigationRailLabelType labelType = NavigationRailLabelType.all;
   bool showLeading = false;
   bool showTrailing = false;
   double groupAlignment = -1.0;
-  //자동 증가에 필요한 컨트롤러 코드 시작
-  late AnimationController controller;
-  String isCelebrate = "";
-
-  @override
-  void initState() {
-    controller = AnimationController(
-      /// [AnimationController]s can be created with `vsync: this` because of
-      /// [TickerProviderStateMixin].
-      vsync: this,
-      duration: const Duration(seconds: 5),
-    )..addListener(() {
-        setState(() {});
-      });
-    controller.repeat(reverse: true);
-    super.initState();
-  }
-  //자동 증가에 필요한 컨트롤러 코드 끝
-  double progress = 0.0;
-
-  void updateProgress() {
-    setState(() {
-      progress += 0.05;
-      if (progress >= 1.0) {
-        isCelebrate = "달성을 축하합니다!!";
-        progress = 0.0;
-      }
-      else {
-        isCelebrate = "";
-      }
-    });
-  }
 
   void _showLabelTypeDialog() {
     showDialog(
@@ -163,9 +132,6 @@ class MainPageState extends State<MainPage> with TickerProviderStateMixin{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Day1'),
-      ),
       body: Row(
         children: <Widget>[
           NavigationRail(
@@ -212,6 +178,7 @@ class MainPageState extends State<MainPage> with TickerProviderStateMixin{
               ),
             ],
           ),
+          const VerticalDivider(thickness: 1, width: 1),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -268,21 +235,7 @@ class MainPageState extends State<MainPage> with TickerProviderStateMixin{
                     ),
                   ],
                 ),
-                
               ],
-            ),
-          ),
-          Column(
-            ElevatedButton(
-              onPressed: updateProgress,
-              child: Text('진행률 증가'),
-            ),
-            SizedBox(height: 30),
-            Text(progress.toStringAsFixed(2)),
-            SizedBox(height: 30),
-            Text(
-              isCelebrate,
-              style: TextStyle(fontSize: 24)
             ),
           ),
         ],
