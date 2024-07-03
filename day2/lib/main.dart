@@ -37,66 +37,15 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-        centerTitle: true,
-        backgroundColor: lightColorScheme.tertiary,
       ),
-      body: Center(
+      body: const Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Icon(
-                  Icons.favorite,
-                  color: lightColorScheme.primary,
-                  size: 36.0,
-                  semanticLabel: "추추와의 교감도",
-                ),
-                Container(
-                  width: 200,
-                  height: 36,
-                  color: Colors.red,
-                ),
-              ],
-            ), 
-            SizedBox(height: 200,),
-            Column(crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Icon(
-                  Icons.water_drop,
-                  size: 36,
-                ),
-                SizedBox(height: 20),
-                Icon(
-                  Icons.food_bank_sharp,
-                  size: 36,
-                ),
-                SizedBox(height: 20),
-                Icon(
-                  Icons.car_rental,
-                  size: 36,
-                ),
-                SizedBox(height: 20),
-                Icon(
-                  Icons.rotate_right_outlined,
-                  size: 36,
-                ),
-                SizedBox(height: 20),
-                Icon(
-                  Icons.language,
-                  size: 36,
-                ),
-                SizedBox(height: 20),
-                Icon(
-                  Icons.help,
-                  size: 36,
-                ),
-                SizedBox(height: 20),
-              ],
-            )
-          ]
-          ),
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+          ],
+        ),
       ),
+      floatingActionButton: const FloatingActionButton(onPressed: null),
     );
   }
 }

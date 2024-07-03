@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: "WNSP",
       home: MainPage(),
     );
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+  const MainPage({super.key});
   @override
   State<MainPage> createState() => MainPageState();
 }
@@ -63,7 +65,7 @@ class MainPageState extends State<MainPage> with TickerProviderStateMixin{
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Choose Label Type'),
+          title: const Text('Choose Label Type'),
           content: Column(
             children: <Widget>[
               Padding(
@@ -114,7 +116,7 @@ class MainPageState extends State<MainPage> with TickerProviderStateMixin{
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Choose Group Alignment'),
+          title: const Text('Choose Group Alignment'),
           content: Column(
             children: <Widget>[
               Padding(
@@ -164,7 +166,7 @@ class MainPageState extends State<MainPage> with TickerProviderStateMixin{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Day1'),
+        title: const Text('Day1'),
       ),
       body: Row(
         children: <Widget>[
@@ -270,6 +272,19 @@ class MainPageState extends State<MainPage> with TickerProviderStateMixin{
                 ),
                 
               ],
+            ),
+          ),
+          Column(
+            ElevatedButton(
+              onPressed: updateProgress,
+              child: const Text('진행률 증가'),
+            ),
+            const SizedBox(height: 30),
+            Text(progress.toStringAsFixed(2)),
+            const SizedBox(height: 30),
+            Text(
+              isCelebrate,
+              style: const TextStyle(fontSize: 24)
             ),
           ),
         ],
