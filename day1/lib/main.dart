@@ -275,17 +275,19 @@ class MainPageState extends State<MainPage> with TickerProviderStateMixin{
             ),
           ),
           Column(
-            ElevatedButton(
-              onPressed: updateProgress,
-              child: const Text('진행률 증가'),
-            ),
-            const SizedBox(height: 30),
-            Text(progress.toStringAsFixed(2)),
-            const SizedBox(height: 30),
-            Text(
-              isCelebrate,
-              style: const TextStyle(fontSize: 24)
-            ),
+            children: [
+              ElevatedButton(
+                onPressed: updateProgress,
+                child: const Text('진행률 증가'),
+              ),
+              const SizedBox(height: 30),
+              Text(progress.toStringAsFixed(2)),
+              const SizedBox(height: 30),
+              Text(
+                isCelebrate,
+                style: const TextStyle(fontSize: 24)
+              ),
+            ]
           ),
         ],
       ),

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 void main() => runApp(const NavigationRailExampleApp());
 
 class NavigationRailExampleApp extends StatelessWidget {
-  const NavigationRailExampleApp({Key? key}) : super(key: key);
+  const NavigationRailExampleApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class NavigationRailExampleApp extends StatelessWidget {
 }
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Choose Label Type'),
+          title: const Text('Choose Label Type'),
           content: Column(
             children: <Widget>[
               Padding(
@@ -83,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Choose Group Alignment'),
+          title: const Text('Choose Group Alignment'),
           content: Column(
             children: <Widget>[
               Padding(

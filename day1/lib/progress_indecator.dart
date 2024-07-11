@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Flutter Demo',
       home: MyHomePage(),
     );
@@ -13,8 +15,10 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
@@ -56,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Linear Progress Indicator'),
+        title: const Text('Linear Progress Indicator'),
       ),
       body: Center(
         child: Column(
@@ -64,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           children: <Widget>[
             TweenAnimationBuilder<double>(
               tween: Tween<double>(begin: 0.0, end: progress),
-              duration: Duration(milliseconds: 500), // 애니메이션 지속 시간
+              duration: const Duration(milliseconds: 500), // 애니메이션 지속 시간
               builder: (_, double value, __) {
                 return LinearProgressIndicator(
                   value: value, //버튼으로 증가
@@ -72,19 +76,19 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 );
               },
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: updateProgress,
-              child: Text('진행률 증가'),
+              child: const Text('진행률 증가'),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Text(progress.toStringAsFixed(2)),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
-            Text(isCelebrate, style: TextStyle(fontSize: 24),),
+            Text(isCelebrate, style: const TextStyle(fontSize: 24),),
           ],
         ),
       ),
